@@ -1,5 +1,5 @@
-class StringMath {
-    add(first : string, second : string) {
+function StringMath() {
+    this.add = function(first : string, second : string) {
         var lValue1s : string;
         var lValue2s : string;
         var lIndex : number;
@@ -30,7 +30,7 @@ class StringMath {
         return lNewValue;
     }
 
-    subtract(from : string, subtract : string) {
+    this.subtract = function(from : string, subtract : string) {
         if (parseFloat(from) - parseFloat(subtract) < 0) {
             return "0";
         }
@@ -84,7 +84,7 @@ class StringMath {
         return lOutput;
     }
 
-    standardizeStrings(first : string, second : string) {
+    this.standardizeStrings = function(first : string, second : string) {
         var lValue1 : string = first;
         var lValue2 : string = second;
 
@@ -101,7 +101,7 @@ class StringMath {
         return {first : lValue1, second : lValue2};
     }
 
-    isGreaterThan(is : string, greaterThan : string) {
+    this.isGreaterThan = function(is : string, greaterThan : string) {
         var stStrings : any = this.standardizeStrings(is, greaterThan);
         var lValue1s : string = stStrings.first;
         var lValue2s : string = stStrings.second;
@@ -115,7 +115,7 @@ class StringMath {
         return false;
     }
 
-    isGreaterThanOrEqualTo(is : string, greaterThanOrEqualTo : string) {
+    this.isGreaterThanOrEqualTo = function(is : string, greaterThanOrEqualTo : string) {
         var stStrings : any = this.standardizeStrings(is, greaterThanOrEqualTo);
         var lValue1s : string = stStrings.first;
         var lValue2s : string = stStrings.second;
@@ -129,7 +129,7 @@ class StringMath {
         return true;
     }
 
-    isLessThan(is : string, lessThan : string) {
+    this.isLessThan = function(is : string, lessThan : string) {
         var stStrings : any = this.standardizeStrings(is, lessThan);
         var lValue1s : string = stStrings.first;
         var lValue2s : string = stStrings.second;
@@ -143,7 +143,7 @@ class StringMath {
         return false;
     }
 
-    isLessThanOrEqualTo(is : string, lessThanOrEqualTo : string) {
+    this.isLessThanOrEqualTo = function(is : string, lessThanOrEqualTo : string) {
         var stStrings : any = this.standardizeStrings(is, lessThanOrEqualTo);
         var lValue1s : string = stStrings.first;
         var lValue2s : string = stStrings.second;
@@ -157,7 +157,7 @@ class StringMath {
         return true;
     }
 
-    isEqual(first : string, second : string) {
+    this.isEqual = function(first : string, second : string) {
         var stStrings : any = this.standardizeStrings(first, second);
         var lValue1s : string = stStrings.first;
         var lValue2s : string = stStrings.second;
@@ -165,7 +165,7 @@ class StringMath {
         return lValue1s === lValue2s;
     }
 
-    roundUpToNearest0001(value : string) {
+    this.roundUpToNearest0001 = function(value : string) {
         var floatValue : number = parseFloat(value);
         floatValue = floatValue * 10000;
         floatValue = Math.floor(floatValue);
@@ -179,4 +179,4 @@ class StringMath {
     }
 }
 
-export { StringMath };
+module.exports = StringMath;
