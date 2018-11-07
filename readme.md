@@ -1,0 +1,3 @@
+V1 package for doing math stuffs with strings.
+
+More coming soon...

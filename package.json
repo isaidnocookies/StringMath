@@ -1,0 +1,15 @@
+{
+  "name": "@isaidnocookies/stringmath",
+  "version": "1.0.0",
+  "description": "Package to handle math functions using JS strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "string",
+    "math"
+  ],
+  "author": "Christopher Forte",
+  "license": "ISC"
+}
