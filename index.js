@@ -168,7 +168,7 @@ function StringMath() {
     this.roundUpToNearest0001 = function(value) {
         var floatValue = parseFloat(value);
         floatValue = floatValue * 10000;
-        floatValue = Math.floor(floatValue);
+        floatValue = Math.round(floatValue);
 
         if (floatValue > 1) {
             var floatString = floatValue.toString();
