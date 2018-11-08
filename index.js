@@ -1,11 +1,11 @@
 function StringMath() {
-    this.add = function(first : string, second : string) {
-        var lValue1s : string;
-        var lValue2s : string;
-        var lIndex : number;
-        var lNewValue : string = "";
+    this.add = function(first, second) {
+        var lValue1s;
+        var lValue2s;
+        var lIndex;
+        var lNewValue = "";
 
-        var standardizedStrings : any = this.standardizeStrings(first, second);
+        var standardizedStrings = this.standardizeStrings(first, second);
         lValue1s = standardizedStrings.first;
         lValue2s = standardizedStrings.second;
         lIndex = lValue1s.indexOf(".");
@@ -13,12 +13,12 @@ function StringMath() {
         lValue1s = lValue1s.substring(0, lIndex) + lValue1s.substring(lIndex + 1);
         lValue2s = lValue2s.substring(0, lIndex) + lValue2s.substring(lIndex + 1);
 
-        var lFromLast : number = 0;
+        var lFromLast = 0;
         for (var i = lValue1s.length - 1; i >= 0; i--) {
-            var lResult : number = parseInt(lValue1s.charAt(i)) + parseInt(lValue2s.charAt(i)) + lFromLast;
+            var lResult = parseInt(lValue1s.charAt(i)) + parseInt(lValue2s.charAt(i)) + lFromLast;
 
-            var lCarry : number = Math.floor(lResult / 10);
-            var lValue : number = lResult - (lCarry * 10);
+            var lCarry = Math.floor(lResult / 10);
+            var lValue = lResult - (lCarry * 10);
 
             lNewValue = lValue.toString() + lNewValue;
 
@@ -30,19 +30,19 @@ function StringMath() {
         return lNewValue;
     }
 
-    this.subtract = function(from : string, subtract : string) {
+    this.subtract = function(from, subtract) {
         if (parseFloat(from) - parseFloat(subtract) < 0) {
             return "0";
         }
 
-        var lValue1s : string;
-        var lValue2s : string;
-        var lVStack1 : string[] = [];
-        var lVStack2 : string[] = [];
-        var lTempStack : string[] = [];
-        var lOutput : string = "";
+        var lValue1s;
+        var lValue2s;
+        var lVStack1 = [];
+        var lVStack2 = [];
+        var lTempStack = [];
+        var lOutput = "";
 
-        var standardizedStrings : any = this.standardizeStrings(from, subtract);
+        var standardizedStrings = this.standardizeStrings(from, subtract);
         lValue1s = standardizedStrings.first;
         lValue2s = standardizedStrings.second;
 
@@ -52,8 +52,8 @@ function StringMath() {
         }
 
         while (!(lVStack1.length === 0) && !(lVStack2.length === 0)) {
-            var lTemp1 : string = lVStack1.pop();
-            var lTemp2 : string = lVStack2.pop();
+            var lTemp1 = lVStack1.pop();
+            var lTemp2 = lVStack2.pop();
 
             if (lTemp1 === ".") {
                 lOutput = "." + lOutput;
@@ -84,9 +84,9 @@ function StringMath() {
         return lOutput;
     }
 
-    this.standardizeStrings = function(first : string, second : string) {
-        var lValue1 : string = first;
-        var lValue2 : string = second;
+    this.standardizeStrings = function(first, second) {
+        var lValue1 = first;
+        var lValue2 = second;
 
         if (lValue1.indexOf(".") < 0) { lValue1 += ".00"; }
         if (lValue2.indexOf(".") < 0) { lValue2 += ".00"; }
@@ -101,10 +101,10 @@ function StringMath() {
         return {first : lValue1, second : lValue2};
     }
 
-    this.isGreaterThan = function(is : string, greaterThan : string) {
-        var stStrings : any = this.standardizeStrings(is, greaterThan);
-        var lValue1s : string = stStrings.first;
-        var lValue2s : string = stStrings.second;
+    this.isGreaterThan = function(is, greaterThan) {
+        var stStrings = this.standardizeStrings(is, greaterThan);
+        var lValue1s = stStrings.first;
+        var lValue2s = stStrings.second;
 
         for (var i = 0; i < lValue1s.length - 1; i++) {
             if (lValue1s.charAt(i) === lValue2s.charAt(i)) { continue; }
@@ -115,10 +115,10 @@ function StringMath() {
         return false;
     }
 
-    this.isGreaterThanOrEqualTo = function(is : string, greaterThanOrEqualTo : string) {
-        var stStrings : any = this.standardizeStrings(is, greaterThanOrEqualTo);
-        var lValue1s : string = stStrings.first;
-        var lValue2s : string = stStrings.second;
+    this.isGreaterThanOrEqualTo = function(is, greaterThanOrEqualTo) {
+        var stStrings = this.standardizeStrings(is, greaterThanOrEqualTo);
+        var lValue1s = stStrings.first;
+        var lValue2s = stStrings.second;
 
         for (var i = 0; i < lValue1s.length - 1; i++) {
             if (lValue1s.charAt(i) == lValue2s.charAt(i)) { continue; }
@@ -129,10 +129,10 @@ function StringMath() {
         return true;
     }
 
-    this.isLessThan = function(is : string, lessThan : string) {
-        var stStrings : any = this.standardizeStrings(is, lessThan);
-        var lValue1s : string = stStrings.first;
-        var lValue2s : string = stStrings.second;
+    this.isLessThan = function(is, lessThan) {
+        var stStrings = this.standardizeStrings(is, lessThan);
+        var lValue1s = stStrings.first;
+        var lValue2s = stStrings.second;
 
         for (var i = 0; i < lValue1s.length - 1; i++) {
             if (lValue1s.charAt(i) == lValue2s.charAt(i)) { continue; }
@@ -143,10 +143,10 @@ function StringMath() {
         return false;
     }
 
-    this.isLessThanOrEqualTo = function(is : string, lessThanOrEqualTo : string) {
-        var stStrings : any = this.standardizeStrings(is, lessThanOrEqualTo);
-        var lValue1s : string = stStrings.first;
-        var lValue2s : string = stStrings.second;
+    this.isLessThanOrEqualTo = function(is, lessThanOrEqualTo) {
+        var stStrings = this.standardizeStrings(is, lessThanOrEqualTo);
+        var lValue1s = stStrings.first;
+        var lValue2s = stStrings.second;
 
         for (var i = 0; i < lValue1s.length - 1; i++) {
             if (lValue1s.charAt(i) == lValue2s.charAt(i)) { continue; }
@@ -157,21 +157,21 @@ function StringMath() {
         return true;
     }
 
-    this.isEqual = function(first : string, second : string) {
-        var stStrings : any = this.standardizeStrings(first, second);
-        var lValue1s : string = stStrings.first;
-        var lValue2s : string = stStrings.second;
+    this.isEqual = function(first, second) {
+        var stStrings = this.standardizeStrings(first, second);
+        var lValue1s = stStrings.first;
+        var lValue2s = stStrings.second;
 
         return lValue1s === lValue2s;
     }
 
-    this.roundUpToNearest0001 = function(value : string) {
-        var floatValue : number = parseFloat(value);
+    this.roundUpToNearest0001 = function(value) {
+        var floatValue = parseFloat(value);
         floatValue = floatValue * 10000;
         floatValue = Math.floor(floatValue);
 
         if (floatValue > 1) {
-            var floatString : string = floatValue.toString();
+            var floatString = floatValue.toString();
             floatString = floatString.substring(0, floatString.length - 4) + "." + floatString.substring(floatString.length - 4);
             return (floatString);
         }
