@@ -25,11 +25,14 @@ $ npm install -s @isaidnocookies/StringMath
 
 Useage
 ```js
-var StringMath = require('StringMath');
+var StringMath = require('@isaidnocookies/StringMath');
 
 var stringmath = new StringMath();
-stringmath.add("0.001", "0.002"); // '0.003'
-stringmath.subtract("0.02", "0.01"); // '0.01'
+var addresult = parseFloat(stringmath.add("0.001", "0.002"));
+var subresult = parseFloat(stringmath.subtract("0.2", "0.1"));
+
+console.log("0.001 + 0.002 = " + addresult); // '0.003'
+console.log("0.2 - 0.1 = " + subresult); // '0.01'
 ```
 
 Also, check out [ThreeBx]
