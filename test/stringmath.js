@@ -31,13 +31,6 @@ describe("Subtraction Tester", function() {
             expect(parseFloat(zero)).to.equal(0);
             expect(parseFloat(onepointone)).to.equal(1.1);
       });
-      // it("Subtracts strings and result is negative", function() {
-      //       var stringmath = new StringMath();
-      //
-      //       var negative = stringmath.subtract("1", "2");
-      //
-      //       expect(parseFloat(negative)).to.equal(-1);
-      // });
 });
 
 describe("StandardizeStrings Tester", function() {
@@ -135,5 +128,29 @@ describe("roundUpToNearest0001 Tester", function() {
             expect(parseFloat(twotwo)).to.equal(1.0002);
             expect(parseFloat(three)).to.equal(1.0000);
             expect(parseFloat(four)).to.equal(1.0001);
+      });
+});
+
+describe("sciToDecimal Tester", function () {
+      it("sciToDecimal test returns valid value", function () {
+            var stringmath = new StringMath();
+
+            var one = stringmath.sciToDecimal("1e-8");
+            var two = stringmath.sciToDecimal("1e8");
+            var three = stringmath.sciToDecimal("1.123e4");
+            var four = stringmath.sciToDecimal("-2.67e-3");
+            var five = stringmath.sciToDecimal("1.11e-8");
+            var six = stringmath.sciToDecimal("-1e5");
+            var seven = stringmath.sciToDecimal("1.1e4");
+            var eight = stringmath.sciToDecimal("2.0e-3");
+
+            expect(one).to.equal("0.00000001");
+            expect(two).to.equal("100000000");
+            expect(three).to.equal("11230");
+            expect(four).to.equal("-0.00267");
+            expect(five).to.equal("0.0000000111");
+            expect(six).to.equal("-100000");
+            expect(seven).to.equal("11000");
+            expect(eight).to.equal("0.002");
       });
 });

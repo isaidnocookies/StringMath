@@ -9,6 +9,7 @@ Current functions are:
   - isLessThanOrEqualTo
   - isEqual
   - roundUpToNearest0001
+  - sciToDecimal
 
 # Current Limitations!
 

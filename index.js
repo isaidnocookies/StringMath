@@ -177,6 +177,62 @@ function StringMath() {
         }
         return "0.0001";
     }
+
+    this.sciToDecimal = function(value) {
+        var isNegative = false;
+        var num = value.toLowerCase();
+        var sciPower, positionOfE, decimalPosition, inc;
+        
+        if (value.length === 0) {
+            return "0";
+        }
+        
+        if (value.charAt(0) === "-") {
+            isNegative = true;
+            num = num.substring(1);
+        }
+
+        positionOfE = num.indexOf("e");
+        sciPower = parseInt(num.substring(positionOfE + 1));
+        decimalPosition = num.indexOf(".");
+        num = num.substring(0, positionOfE);
+
+        if (num.substring(num.length - 2) === ".0") {
+            num = num.substring(0, num.length-2)
+        }
+
+        if (decimalPosition >= 0) {
+            num = num.substring(0,decimalPosition) + num.substring(decimalPosition + 1)
+        } else {
+            decimalPosition = 1;
+        }
+
+        if (sciPower < 0) {
+            inc = -1;
+        } else {
+            inc = 1;
+            sciPower++;
+        }
+
+        for (var i = 0; Math.abs(i) < Math.abs(sciPower); i = i + inc) {
+            var index = decimalPosition + i;
+            if (index <= 0) {
+                num = "0" + num;
+            } else if (index > num.length) {
+                num = num + "0"
+            }
+        }
+
+        if (sciPower < 0) {
+            num = "0." + num;
+        }
+
+        if (isNegative) {
+            num = "-" + num;
+        }
+
+        return num;
+    }
 }
 
 module.exports = StringMath;
