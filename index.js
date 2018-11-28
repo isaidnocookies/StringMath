@@ -169,13 +169,14 @@ function StringMath() {
         var floatValue = parseFloat(value);
         floatValue = floatValue * 10000;
         floatValue = Math.round(floatValue);
+        floatValue = floatValue / 10000;
 
-        if (floatValue > 1) {
-            var floatString = floatValue.toString();
-            floatString = floatString.substring(0, floatString.length - 4) + "." + floatString.substring(floatString.length - 4);
-            return (floatString);
+        if (floatValue < 0.0001) {
+            return "0.0001";
         }
-        return "0.0001";
+        
+        var floatString = floatValue.toString();
+        return (floatString);
     }
 
     this.sciToDecimal = function(value) {

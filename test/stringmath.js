@@ -121,13 +121,15 @@ describe("roundUpToNearest0001 Tester", function() {
             var two = stringmath.roundUpToNearest0001("1.00011");
             var twotwo = stringmath.roundUpToNearest0001("1.00015");
             var three = stringmath.roundUpToNearest0001("1.00004");
-            var four = stringmath.roundUpToNearest0001("1.00009");
+            var four = stringmath.roundUpToNearest0001("0.0005");
+            var fourfour = stringmath.roundUpToNearest0001("0.00055");
 
             expect(parseFloat(one)).to.equal(1);
             expect(parseFloat(two)).to.equal(1.0001);
             expect(parseFloat(twotwo)).to.equal(1.0002);
             expect(parseFloat(three)).to.equal(1.0000);
-            expect(parseFloat(four)).to.equal(1.0001);
+            expect(parseFloat(four)).to.equal(0.0005);
+            expect(parseFloat(fourfour)).to.equal(0.0006);
       });
 });
 
