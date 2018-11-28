@@ -176,6 +176,11 @@ function StringMath() {
         }
         
         var floatString = floatValue.toString();
+
+        if (floatString.charAt(0) === ".") {
+            floatString = floatString.append("0");
+        }
+        
         return (floatString);
     }
 

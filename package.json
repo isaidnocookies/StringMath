@@ -1,6 +1,6 @@
 {
   "name": "@isaidnocookies/stringmath",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Package to handle math functions using JS strings",
   "main": "index.js",
   "scripts": {
