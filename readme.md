@@ -35,7 +35,3 @@ var subresult = parseFloat(stringmath.subtract("0.2", "0.1"));
 console.log("0.001 + 0.002 = " + addresult); // '0.003'
 console.log("0.2 - 0.1 = " + subresult); // '0.01'
 ```
-
-Also, check out [ThreeBx]
-
-   [ThreeBx]: <https://www.threebx.com>
